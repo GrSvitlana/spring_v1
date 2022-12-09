@@ -1,7 +1,9 @@
 package org.example;
 
+import org.example2.Parrot;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class ProjectConfig {
@@ -13,10 +15,18 @@ public class ProjectConfig {
         return parrot;
     }
 
-    @Bean
+    @Bean("Coco")
     public Parrot parrot2() {
         Parrot parrot = new Parrot();
         parrot.setName("Coco");
+        return parrot;
+    }
+
+    @Bean
+    @Primary
+    public Parrot parrot3() {
+        Parrot parrot = new Parrot();
+        parrot.setName("Miki");
         return parrot;
     }
 
